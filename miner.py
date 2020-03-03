@@ -24,4 +24,11 @@ def proof_of_work(last_proof):
 def valid_proof(last_hash, proof):
     guess = f"{proof}".encode()
     prev_hash = hashlib.sha256(guess).hexdigest()
+
+    if difficulty is not None:
+        leading_zeros = "0" * difficulty
+
+    else:
+        leading_zeros = "0" * 6
+
     return prev_hash[:6] == last_hash[-6:]
