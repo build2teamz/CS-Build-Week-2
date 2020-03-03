@@ -22,4 +22,7 @@ def proof_of_work(last_proof):
     return proof
 
 
-def valid_proof()
+def valid_proof(last_hash, proof):
+    guess = f"{proof}".encode()
+    prev_hash = hashlib.sha256(guess).hexdigest()
+    return prev_hash[:6] == last_hash[-6:]
