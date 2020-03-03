@@ -18,14 +18,12 @@ world.load_graph(room_graph)
 world.print_rooms()
 
 player = Player(world.starting_room)
+'''
 
 # Fill this out with directions to walk
 # traversal_path = ['n', 'n']
 # Keeps track of route the player took
 traversal_path = []
-
-
-# keeps track of what rooms the player has visited
 visited = {}
 
 # Starting room as per the readme
@@ -33,8 +31,9 @@ beginning_room = {'n': '?', 's': '?', 'w': '?', 'e': '?'}
 # The player begins in room '0'
 visited[0] = beginning_room
 # Useing a bfs that looks for a '?'
-'''
 auth_key = config('AUTH_KEY')
+
+# keeps track of what rooms the player has visited
 
 class Player:
     def __init__(self, name, starting_room):

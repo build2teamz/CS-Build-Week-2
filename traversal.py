@@ -1,7 +1,7 @@
 from player import Player
 import time 
 
-player=Player('jenn', 0)
+player=Player('Reed', 0)
 player.init()
 
 
