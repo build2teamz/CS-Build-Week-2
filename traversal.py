@@ -1,12 +1,14 @@
 from player import Player
 import time 
 
-player=Player('jenn', 0)
+
+player=Player('jenn', 55)
 player.init()
 
 
 
 traversalPath = []
+print(traversalPath)
 #-----------
 copy={}
 rooms={}
@@ -15,7 +17,19 @@ reverse=[]
 while len(copy) < 500:
   cooldown=player.currentRoom['cooldown']
   time.sleep(cooldown)
-  time.sleep(2)
+  # time.sleep(2)
+  print(player.currentRoom)
+  # if len(player.currentRoom['items']) > 0:
+  #   player.take()
+  #   print('yay items')
+  # else:
+  #   next
+
+  #   if player.currentRoom['title'] == 'Shop':
+  #     player.sell()
+  #   else:
+  #     next
+
 
   current_room=player.currentRoom['room_id']
   if current_room not in copy:
@@ -33,8 +47,10 @@ while len(copy) < 500:
       rooms[current_room]=current_room
       roomObj=player.currentRoom
       rooms[current_room]=roomObj
-      print(roomObj)
       
+      if current_room == 55:
+        break
+
 
 
   if 'n' in copy[current_room] and exits['n'] == 'unknown':

@@ -13,6 +13,7 @@ class Player:
     def __init__(self, name, startingRoom):
         self.name = name
         self.currentRoom = startingRoom
+        # startingRoom = 55
     def travel(self, direction):
         if direction == "n":
             data={"direction": "n"}
@@ -35,4 +36,22 @@ class Player:
         )
         nextRoom=json.loads(response.text)
         self.currentRoom=nextRoom
-        print(response.text)
+
+    def take(self):
+      if len(self.currentRoom['items']) > 0:
+        data = {'name': 'treasure'}
+        response = requests.post(
+          'https://lambda-treasure-hunt.herokuapp.com/api/adv/take/', headers=headers, data=json.dumps(data)
+        )
+      else:
+        next
+
+    def sell(self):
+      if self.currentRoom['title'] == "Shop":
+        data = {'name': 'treasure', 'confirm': 'yes'}
+        response = requests.post(
+          'https://lambda-treasure-hunt.herokuapp.com/api/adv/sell/', headers=headers, data=json.dumps(data)
+        )
+        print('Selling!')
+      else:
+        next
