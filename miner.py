@@ -12,7 +12,6 @@ def proof_of_work(last_proof):
 
     print("Searching for next proof")
     proof = 0
-    #  TODO: Your code here
     guess = f"{last_proof}".encode()
     prev_hash = hashlib.sha256(guess).hexdigest()
 
