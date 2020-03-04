@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 requests = "*"
 decouple = "*"
+request = "*"
 
 [requires]
 python_version = "3.8"
