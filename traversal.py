@@ -7,6 +7,7 @@ player.init()
 
 
 traversalPath = []
+print(traversalPath)
 #-----------
 copy={}
 rooms={}
@@ -30,6 +31,19 @@ while len(copy) < 500 or player.currentRoom.title != 'Shop' or player.currentRoo
   #   print('else/take')
   #   next
 
+  # time.sleep(2)
+  print(player.currentRoom)
+  # if len(player.currentRoom['items']) > 0:
+  #   player.take()
+  #   print('yay items')
+  # else:
+  #   next
+
+  #   if player.currentRoom['title'] == 'Shop':
+  #     player.sell()
+  #   else:
+  #     next
+
 
   current_room=player.currentRoom['room_id']
   if current_room not in copy:
@@ -47,7 +61,6 @@ while len(copy) < 500 or player.currentRoom.title != 'Shop' or player.currentRoo
       rooms[current_room]=current_room
       roomObj=player.currentRoom
       rooms[current_room]=roomObj
-      print(roomObj)
       
   # if 'w' in copy[current_room] and exits['w'] == 'unknown':
   #   if exits['w'] == 'unknown':
