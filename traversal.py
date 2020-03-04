@@ -48,7 +48,7 @@ while len(copy) < 500:
       roomObj=player.currentRoom
       rooms[current_room]=roomObj
       
-      if current_room == 55:
+      if current_room == 132:
         break
 
 
