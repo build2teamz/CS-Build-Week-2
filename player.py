@@ -47,3 +47,13 @@ class Player:
             )
         else:
             next
+
+    def sell(self):
+        if self.currentRoom['title'] == "Shop":
+            data = {'name': 'treasure', 'confirm': 'yes'}
+            response = requests.post(
+                'https://lambda-treasure-hunt.herokuapp.com/api/adv/sell/', headers=headers, data=json.dumps(data)
+            )
+            print('Selling!')
+        else:
+            next
