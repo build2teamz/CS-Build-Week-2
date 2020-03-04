@@ -49,19 +49,19 @@ while len(copy) < 500 or player.currentRoom.title != 'Shop' or player.currentRoo
       rooms[current_room]=roomObj
       print(roomObj)
       
-  if 'w' in copy[current_room] and exits['w'] == 'unknown':
-    if exits['w'] == 'unknown':
-      player.travel("w")
-      traversalPath.append("w")
-      newRoom = player.currentRoom['room_id']
-      exits['w'] = newRoom
-      newExits = {}
-      if newRoom not in copy:
-        for exit in player.currentRoom['exits']:
-          newExits[exit] = "unknown"
-          copy[newRoom] = newExits
-        newExits['e'] = current_room
-      reverse.append('e')
+  # if 'w' in copy[current_room] and exits['w'] == 'unknown':
+  #   if exits['w'] == 'unknown':
+  #     player.travel("w")
+  #     traversalPath.append("w")
+  #     newRoom = player.currentRoom['room_id']
+  #     exits['w'] = newRoom
+  #     newExits = {}
+  #     if newRoom not in copy:
+  #       for exit in player.currentRoom['exits']:
+  #         newExits[exit] = "unknown"
+  #         copy[newRoom] = newExits
+  #       newExits['e'] = current_room
+  #     reverse.append('e')
 
   elif 'n' in copy[current_room] and exits['n'] == 'unknown':
     if exits['n']=='unknown':
