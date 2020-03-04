@@ -28,7 +28,14 @@ class Player:
 
         nextRoom=json.loads(response.text)
         self.currentRoom=nextRoom
-
+    def take(self):
+        if len(self.currentRoom['items']) > 0:
+            data = {'name': 'treasure'}
+        response = requests.post(
+            'https://lambda-treasure-hunt.herokuapp.com/api/adv/take/', headers=headers, data=json.dumps(data)
+        )
+        nextRoom = json.loads(response.text)
+        self.currentRoom = nextRoom
     def init(self):
         response=requests.get(
             'https://lambda-treasure-hunt.herokuapp.com/api/adv/init/', headers=headers 

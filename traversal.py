@@ -12,10 +12,24 @@ copy={}
 rooms={}
 reverse=[]
 #-----------
-while len(copy) < 500:
+while len(copy) < 500 or player.currentRoom.title != 'Shop' or player.currentRoom.room_id == '0':
   cooldown=player.currentRoom['cooldown']
   time.sleep(cooldown)
   time.sleep(2)
+  # if player.currentRoom['Shop']:
+  #   print('you made it')
+  #   break
+  # else:
+  #   next
+
+  # if len(player.currentRoom['items'])> 0:
+  #   player.take()
+  #   print('if/take')
+  #   next
+  # else:
+  #   print('else/take')
+  #   next
+
 
   current_room=player.currentRoom['room_id']
   if current_room not in copy:
@@ -35,9 +49,21 @@ while len(copy) < 500:
       rooms[current_room]=roomObj
       print(roomObj)
       
+  if 'w' in copy[current_room] and exits['w'] == 'unknown':
+    if exits['w'] == 'unknown':
+      player.travel("w")
+      traversalPath.append("w")
+      newRoom = player.currentRoom['room_id']
+      exits['w'] = newRoom
+      newExits = {}
+      if newRoom not in copy:
+        for exit in player.currentRoom['exits']:
+          newExits[exit] = "unknown"
+          copy[newRoom] = newExits
+        newExits['e'] = current_room
+      reverse.append('e')
 
-
-  if 'n' in copy[current_room] and exits['n'] == 'unknown':
+  elif 'n' in copy[current_room] and exits['n'] == 'unknown':
     if exits['n']=='unknown':
       player.travel("n")
       traversalPath.append("n")
