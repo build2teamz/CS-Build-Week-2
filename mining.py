@@ -95,6 +95,7 @@ if __name__ == '__main__':
         data = r.json()
         print(data)
         time.sleep(data["cooldown"])
+        
         # print(data['message'])
         # if data['message'] == 'New Block Forged':
         #     coins_mined += 1
